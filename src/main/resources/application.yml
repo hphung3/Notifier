@@ -1,0 +1,6 @@
+---
+twilio:
+  account:
+    sid: {{sid}}
+    auth_token: {{token}}
+    from_number: {{twilio_number}}
