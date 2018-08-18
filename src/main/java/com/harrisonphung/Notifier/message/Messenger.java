@@ -26,7 +26,7 @@ public class Messenger {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
     }
 
-    public Messenger(){
+    private Messenger(){
     }
 
     public void sendMessage(MessagePacket messagePacket){
