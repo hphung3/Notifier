@@ -1,5 +1,6 @@
 package com.harrisonphung.Notifier.controller;
 
+import com.harrisonphung.Notifier.config.TwilioConfiguration;
 import com.harrisonphung.Notifier.message.MessagePacket;
 import com.harrisonphung.Notifier.message.Messenger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by harrisonphung on 7/31/18.
  */
 @Controller
+@RequestMapping("api")
 public class MessageController {
 
     @Autowired

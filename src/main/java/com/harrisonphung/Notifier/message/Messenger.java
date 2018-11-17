@@ -1,6 +1,8 @@
 package com.harrisonphung.Notifier.message;
 
+import com.harrisonphung.Notifier.config.TwilioConfiguration;
 import com.twilio.Twilio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,19 +14,8 @@ import javax.annotation.PostConstruct;
 @Component
 public class Messenger {
 
-    @Value("${twilio.account.sid}")
-    private String ACCOUNT_SID;
-
-    @Value("${twilio.account.auth_token}")
-    private String AUTH_TOKEN;
-
-    @Value("${twilio.account.from_number}")
-    private String fromNumber;
-
-    @PostConstruct
-    public void initTwilio(){
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-    }
+    @Autowired
+    TwilioConfiguration twilioConfiguration;
 
     private Messenger(){
     }
@@ -32,7 +23,7 @@ public class Messenger {
     public void sendMessage(MessagePacket messagePacket){
     com.twilio.rest.api.v2010.account.Message.creator(
                 new com.twilio.type.PhoneNumber(messagePacket.getToNumber()),
-                new com.twilio.type.PhoneNumber(fromNumber),
+                new com.twilio.type.PhoneNumber(twilioConfiguration.getFromNumber()),
                 messagePacket.getMessage())
                 .create();
     }

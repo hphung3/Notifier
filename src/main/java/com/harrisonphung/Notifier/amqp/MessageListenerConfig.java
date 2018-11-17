@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MessageListenerConfig {
 
-    public final String topicExchangeName = "spring-boot-exchange";
-    public final String queueName = "spring-boot";
+    public final static String topicExchangeName = "spring-boot-exchange";
+    public final static String queueName = "spring-boot";
 
 
     @Bean
@@ -45,8 +45,8 @@ public class MessageListenerConfig {
     }
 
     @Bean
-    MessageListenerAdapter listenerAdapter(MessageListener messageListener){
-        return new MessageListenerAdapter(messageListener, "receiveMessage");
+    MessageListenerAdapter listenerAdapter(Receiver receiver){
+        return new MessageListenerAdapter(receiver, "receiveMessage");
     }
 
 
