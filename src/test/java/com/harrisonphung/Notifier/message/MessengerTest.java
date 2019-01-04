@@ -13,8 +13,8 @@ import static org.junit.Assert.*;
 /**
  * Created by harrisonphung on 7/29/18.
  */
-@SpringBootTest
 @RunWith(SpringRunner.class)
+@SpringBootTest
 @ActiveProfiles("test")
 public class MessengerTest {
 

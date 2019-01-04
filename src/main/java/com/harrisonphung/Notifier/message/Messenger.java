@@ -11,13 +11,12 @@ import javax.annotation.PostConstruct;
 /**
  * Created by harrisonphung on 7/29/18.
  */
-@Component
 public class Messenger {
 
-    @Autowired
     TwilioConfiguration twilioConfiguration;
 
-    private Messenger(){
+    public Messenger(TwilioConfiguration twilioConfiguration){
+        this.twilioConfiguration = twilioConfiguration;
     }
 
     public void sendMessage(MessagePacket messagePacket){
